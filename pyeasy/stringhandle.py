@@ -3,12 +3,11 @@
 String Handle
 '''
 import re
-from time import time
 
 class StringHandle:
 	'''
-	from HuLab.tuweizhong.stringhandle import StringHandle as sh
-	# Usage: 
+	# Usage:
+	#   from pyeasy.stringhandle import StringHandle as sh
 	#	sh(string).findAll(subString)
 	#	sh(string).find(subString,postion)
 	# for examples:
