@@ -17,4 +17,4 @@ def fileTree(path, count=0):
             fileTree(os.path.join(path,eachPath),count+1)
  
 if __name__ == '__main__':
-	fileTree('G:\python\pyeasy')
+	fileTree('/home/tu/pyeasy')

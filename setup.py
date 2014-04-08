@@ -1,5 +1,8 @@
-#  Copyright (C) 2014 pyeasy
-#  All rights reserved.
+# Copyright (C) 2014 pyeasy
+# Author: WeizhongTu
+# All rights reserved.
+# MIT license
+
 from setuptools import setup, find_packages
 
 setup(
@@ -8,4 +11,10 @@ setup(
 	author = 'tuweizhong',
 	author_email = 'tuweizhong@163.com',
 	packages = find_packages(),
+
+	license='MIT',
+	install_requires=[
+	    'xlrd',
+	    'networkx',
+	],
  )
