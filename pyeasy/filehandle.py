@@ -4,7 +4,6 @@
 import os
 import shutil
 
-
 class FileHandle:
 	'''
 	import filehandle
@@ -18,45 +17,42 @@ class FileHandle:
 			else:self.mode="safeon"
 		else:
 			self.mode="safeon"
-		self.allfileslist = []
 
+	@classmethod
 	def copyfile(self,pri,tar):	
 		shutil.copyfile(pri,tar)
 
+	@classmethod
 	def movefile(self,pri,tar):
 		shutil.move(pri,tar)
 
+	@classmethod
 	def deletefile(self,path):
 		os.remove(path)
 
+	@classmethod
 	def getExtension(self,path):
 		L = os.path.split(path)[1].split(".")
 		return L[len(L)-1]
 
+	@classmethod
 	def getFolder(self,path):
 		return os.path.split(path)[0]
 
+	@classmethod
 	def getFilename(self,path):
 		return os.path.split(path)[1]
 
-	def listAllFiles(self,path):
-		'''
-		List = os.listdir(path)
-		for f in List:
-			tp = path + f
-			if os.path.isfile(tp):self.allfileslist.append(tp)
-			elif os.path.isdir(tp):self.listAllFiles(tp+"/")# '/' very important!!!
-
-		return self.allfileslist
-		
-		'''
+	@classmethod
+	def listAllFiles(self,path,extension=''):
 		List = []
-		[List.extend(map(lambda f:os.path.join(r,f), fs) for r,ds,fs in os.walk(path))]
+		# map(getFullPath, extensionFiles)
+		[map(lambda f:List.append(os.path.join(r,f)), filter(lambda f:f.endswith(extension),fs))\
+			for r,ds,fs in os.walk(path)]
 
 		return List
 
-
-
+	@classmethod
 	def headAdd(self,path,content,checkrepeat="off"):
 		f = open(path)
 		primaryContent = f.read()
@@ -76,8 +72,7 @@ class FileHandle:
 				except:pass#no backup if users safeoff
 				print "Failed:",path
 
-
-
+	@classmethod
 	def replaceFileContent(self,path,primary,replace):
 		f = open(path)
 		primaryContent = f.read()
