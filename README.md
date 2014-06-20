@@ -1,6 +1,8 @@
-#pyeasy
-======
-##To make python programing easier
+pyeasy
+==============
+
+To make python programing easier
+----------------------
 
 
 1. read excel
