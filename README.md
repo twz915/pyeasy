@@ -22,5 +22,4 @@ webvisitor.post(url,data)
 3. print file tree
 --------------------
 from pyeasy.filetree import fileTree
-fileTree('/home/tu')
-# print the directory file tree
+fileTree('/home/tu') #print the directory file tree
