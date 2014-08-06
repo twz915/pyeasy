@@ -10,6 +10,16 @@ from bs4 import BeautifulSoup as BS
 import urllib
 import os
 import re
+from urllib import urlretrieve
+
+def download_files(*args):
+    for url in args:
+        filename = '/'.join(url.replace('//','').split('/')[1:])
+        folder = '/'.join(filename.split('/')[:-1])
+        if not os.path.exists(folder):
+            os.makedirs(folder)
+        if not os.path.exists(filename):
+            urlretrieve(url, filename)
 
 
 class WebPage(object):
@@ -98,5 +108,6 @@ if __name__ == '__main__':
     print(p.title)
     print(p.keywords)
     print(list(p.all_pics))
+    download_files(*p.all_pics)
     #print(list(p.all_attachments))
     print("Done!")
